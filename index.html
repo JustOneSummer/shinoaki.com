@@ -134,7 +134,7 @@
         });
         document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
     }
-    mePlayer({
+    let player = mePlayer({
         music: {
             src: 'music/ここから先は歌にならない.mp3',
             title: 'ここから先は歌にならない',
@@ -186,10 +186,9 @@
                 '[04:12.77]只能将愿望深藏心底 拼尽全力向前'
         },
         target: '.music',
-        autoplay: true
-    })
-
-    window.setTimeout(mePlayer.play, 1500)
+        autoplay: false
+    });
+    window.setTimeout(mePlayer.play, 6000)
 </script>
 
 </body>
