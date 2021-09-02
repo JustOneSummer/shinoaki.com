@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
     <title>ぼくたちのリメイク</title>
@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="dist/meplayer.min.css">
-    <script src="dist/meplayer.min.js"></script>
+    <link rel="stylesheet" href="dist/APlayer.min.css">
+    <script src="dist/APlayer.min.js"></script>
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css"/>
     </noscript>
@@ -51,7 +51,7 @@
         </footer>
         <footer>
             <ul class="content">
-                <div class="music">
+                <div id="aplayer" class="music">
 
                 </div>
             </ul>
@@ -134,12 +134,13 @@
         });
         document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
     }
-    let player = mePlayer({
-        music: {
-            src: 'music/ここから先は歌にならない.mp3',
-            title: 'ここから先は歌にならない',
-            author: 'Poppin \'Party',
-            loop: true,
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        lrcType: 1,
+        audio: [{
+            name: 'ここから先は歌にならない',
+            artist: 'Poppin \'Party',
+            url: 'music/ここから先は歌にならない.mp3',
             cover: 'images/re.jpg',
             lrc:
                 '[00:05.13]从今往后 都有我在\n' +
@@ -184,13 +185,22 @@
                 '[03:55.05]将那份夺目的光芒 烙印眼底\n' +
                 '[04:07.85]现在 无法再唱出更动听的歌谣\n' +
                 '[04:12.77]只能将愿望深藏心底 拼尽全力向前'
-        },
-        target: '.music',
-        autoplay: false
+        }]
     });
-    window.setTimeout(mePlayer.play, 6000)
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T23PCMK985"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-T23PCMK985');
+</script>
 </body>
 
 </html>
